@@ -1,0 +1,552 @@
+Beatriz de M. Porto
+19:00
+Boa noite!
+Alex Buracosky
+19:00
+boa noitee
+Melissa Yung
+19:00
+Boa noitee
+Beatriz de M. Porto
+19:00
+Frio demais
+José Cruz
+19:03
+É o marcelo aí
+Alessandra Cruz
+19:06
+Boa noite, pessoal!
+Bacana, Beatriz e Eduardo!
+Você
+19:09
+def descrever(**kwargs):
+    print(kwargs)
+    for chave, valor in kwargs.items():
+        print(f"chave: {chave}, valor: {valor}")
+
+descrever(nome="Joey", idade="8", especie="cachorro")
+Beatriz de M. Porto
+19:09
+https://pythontutor.com/
+
+Esse é excelente também, pessoal.
+Alessandra Cruz
+19:10
+Nao curto muito, Beatriz. Nao sei se quando tentei usar, eu nao soube....rs
+O que é bem provável.
+Vytor Siebra
+19:10
+professor, boa noite
+Vou precisar sair 5 min agora
+colocar o lixo pra fora :V
+Alessandra Cruz
+19:11
+Amo o Vim rs
+Beatriz de M. Porto
+19:12
+Ainda bem que existem vários sites e possibilidades legais, né? Assim, conseguimos ir tentando. Alessandra, uma coisa desse que mandei que não gosto é o tema branco, que cansa o olho. Pelo menos no VSCode há o modo escuro!
+Alessandra Cruz
+19:12
+Mas eu vou nele, Beatriz! Quero aprender a usar!
+Beatriz de M. Porto
+19:13
+Espero que te ajude!
+Alessandra Cruz
+19:13
+Se nao ajudar, eu te grito! :)
+Nara Guimarães
+19:13
+Lauro, desliguei a camera aqui so para arrumar o ambiente
+Beatriz de M. Porto
+19:13
+Por favor, estou sempre disponível! :D
+Diogo Moura
+19:13
+treta nao tem fim
+Mauro Veloso
+19:14
+vdd kkk'
+Alessandra Cruz
+19:14
+ahhh...muito obrigada, Beatriz!
+Beatriz de M. Porto
+19:15
+Imagina!
+Você
+19:19
+Apache spark
+Scala
+José Cruz
+19:21
+Porta de entrada de python é top
+Você
+19:22
+go to
+José Cruz
+19:25
+kkkkkkkkkkkk
+Vytor Siebra
+19:25
+kkkkkkkkkkk
+Tatiane Pereira
+19:25
+quem sabe faz ao vivo
+Vytor Siebra
+19:25
+interagindo na aula
+Beatriz de M. Porto
+19:25
+POO live action
+José Cruz
+19:25
+nao fala em morder
+Vytor Siebra
+19:25
+KKKKKKK
+Esaac de Tillesse Monte
+19:26
+IoT em outro nível aí
+José Cruz
+19:28
+webscraping
+Lucas Nobre Barbosa
+19:29
+A maioria das bibliotecas de dados usam POO.
+
+Quando você entende o que o método está fazendo por baixo dos panos, o nível de compreensão da biblioteca aumenta exponencialmente.
+Beatriz de M. Porto
+19:29
+Que legal, Lucas. Não sabia.
+Tatiane Pereira
+19:39
+nao
+Lucas Nobre Barbosa
+19:40
+Deixa kkkkk
+Falo depois
+Mauro Veloso
+19:40
+nao
+ta ruim msm
+José Cruz
+19:40
+tendi nada
+kkkkkkkkkkkkkkkkkk
+Kauã Cecílio
+19:53
+Vou buscar uma água, já volto
+Beatriz de M. Porto
+19:53
+Eu tbm
+Vytor Siebra
+19:53
+vou precisar ficar ausente aqui rapidinho, volto no máximo em 5-10 min
+Thiago Silva
+20:06
+Boa noite, estava no trabalho, desculpe o atraso
+José Cruz
+20:09
+separar as responsabilidades
+José Cruz
+20:10
+python é paz e amor
+Tatiane Pereira
+20:11
+livre arbítrio
+Beatriz de M. Porto
+20:11
+kkkkk
+Rubens Sousa
+20:11
+kkkk
+Diana Osorio
+20:12
+Vou só fechar a porta por causa do barulho aqui, e já volto
+Diogo Moura
+20:12
+seja eternamente responsável pelo que fazes
+José Cruz
+20:12
+Já volto, vou fechar a camera rapidinho.
+voltei
+José Cruz
+20:16
+callable
+Diogo Moura
+20:20
+quando começa a aninha minha cabeça começa a fica quente O.o
+Beatriz de M. Porto
+20:21
+Nossa, sim. rs
+Esaac de Tillesse Monte
+20:21
+Realmente, enriquece a capacidade de abstração kkkkk
+Beatriz de M. Porto
+20:21
+O debugador é essencial nessas horas kkkk
+Nara Guimarães
+20:22
+coloquei o print(dobrar) para visualizar melhor
+Nara Guimarães
+20:25
+def criar_somador(n):
+    def somador(x):
+        return n + x
+    return somador
+
+somar = criar_somador(20)
+
+print(somar)
+
+somar(10)
+Marcelo Oliveira
+20:25
+def criar_somador(n):
+  def somar(x):
+    return n + x
+  return somar
+Alessandra Cruz
+20:26
+Tranquilo nem sempre é, mas tô entendendo e é possível buscar o conhecimento também.
+Rubens Sousa
+20:26
+def criar_somador(n):
+    def somador(x):
+        return n + x
+    return somador
+
+somar = criar_somador(2)
+
+somar(10)
+Diana Osorio
+20:26
+def criar_somador(n):
+    def somador(x):
+        return n+x
+    return somador
+
+somar = criar_somador(2)
+somar(10)
+Esaac de Tillesse Monte
+20:26
+def criar_somador(n):
+    def somador(x):
+        return n + x
+    return somador
+
+somar = criar_somador(5)
+print(somar(15))
+def criar_somador(n):
+    def somador(x):
+        return n + x
+    return somador
+
+somar = criar_somador(5)
+print(somar(15))
+
+Diana Osorio
+20:26
+def criar_somador(n):
+    def somador(x):
+        return n+x
+    return somador
+
+somar = criar_somador(2)
+somar(10)
+Esaac de Tillesse Monte
+20:26
+def criar_somador(n):
+    def somador(x):
+        return n + x
+    return somador
+
+somar = criar_somador(5)
+print(somar(15))
+def criar_somador(n):
+    def somador(x):
+        return n + x
+    return somador
+
+somar = criar_somador(5)
+print(somar(15))
+Você
+20:27
+wrapper
+José Cruz
+20:29
+show
+Mauro Veloso
+20:29
+blz
+Você
+20:31
+voltamos 8:45
+Nossa pessoal, por algum motivo meu nariz não para de coçar kkkk
+Diana Osorio
+20:33
+professor, minha internet caiu aqui, por isso cai
+Você
+20:34
+sem problemas
+Renan Moreira
+20:45
+professor, uso o cllr como webcam mas ele descarregou, vou ter q ficar um tempo com a camera desligada até ele pegar uma carga, pode ser?
+Kauã Cecílio
+20:45
+to terminando de comer aqui, ja abro a camera
+Rubens Sousa
+20:49
+Professor, vou ficar com a câmera fechado, pq estou comendo ainda
+Diogo Moura
+20:52
+O.o o.O o.O
+Lucas Nobre Barbosa
+20:53
+3
+Nara Guimarães
+20:53
+54
+Nara Guimarães
+20:56
+def criar_multiplicador(n):
+    def multiplicador(x):
+        def somador(m):
+            return (x * n) + m
+        return somador
+    return multiplicador
+
+criar_multiplicador(3)(5)(2)
+Nara Guimarães
+21:00
+minha_funcao = criar_multiplicador(3)
+
+clausura = minha_funcao.__closure__
+
+valor_de_n = clausura[0].cell_contents
+print(valor_de_n)
+assim da certo
+Mauro Veloso
+21:07
+kiwi
+José Cruz
+21:08
+kkkkk
+Beatriz de M. Porto
+21:09
+Eu ia pedir isso kkkk
+Nara Guimarães
+21:13
+lista = [{5: 'banana'}, {2: 'maca'}, {3: 'durian'}, {4: 'abacate'}]
+
+lista.sort(key=lambda x: list(x.values())[0])
+
+print(lista)
+assim da certo Lauro
+José Cruz
+21:13
+tem que extrair os valores com items não?
+Tatiane Pereira
+21:22
+filter
+list(filter)
+José Cruz
+21:24
+blz
+Vytor Siebra
+21:27
+eu kkk
+José Cruz
+21:27
+kkkkkk
+Mauro Veloso
+21:27
+kkkk'
+Nara Guimarães
+21:27
+voce consegue
+Diogo Moura
+21:27
+nao consigo viver sem picanha
+XD
+Beatriz de M. Porto
+21:27
+Sou há mais de dez anos ^^
+Vytor Siebra
+21:28
+sou vegetariano há 2 anos
+Alessandra Cruz
+21:28
+quando eu ficar rica.
+Beatriz de M. Porto
+21:28
+Depende do pão, Lauro hahah
+Vytor Siebra
+21:28
+massa Beatriz ^^
+Diogo Moura
+21:28
+braba
+Mauro Veloso
+21:29
+essa analogia ficou muito boa
+Nara Guimarães
+21:29
+boa analogia
+Vytor Siebra
+21:29
+mt boa
+José Cruz
+21:29
+Vou ser obrigado a comer um pao com ovo agora
+Beatriz de M. Porto
+21:30
+kkkkkk
+Diogo Moura
+21:30
+2
+Diana Osorio
+21:30
+segunda é sempre tenso mesmo
+Alessandra Cruz
+21:30
+Top, Beatriz. Para virar vegetariana, meu metabolismo precisa suplementar muito coisa.
+José Cruz
+21:30
+polegadas né
+Alessandra Cruz
+21:31
+Hoje tá 18 graus, professor.
+Aqui no Rio
+Diogo Moura
+21:31
+LoL
+aqui na minha cidade 18 graus e considerado estado de calamidade
+José Cruz
+21:32
+Queria em diogo, ando de moto aqui no frio é dificil kkkk
+Diogo Moura
+21:34
+show
+José Cruz
+21:34
+tranquilo
+é o gerador esse map né?
+José Cruz
+21:35
+otimizado, muito inteligente
+Diogo Moura
+21:38
+nao pode continuar
+Renan Moreira
+21:38
+vamo terminar
+Lucas Nobre Barbosa
+21:38
+Pode continuar
+Rubens Sousa
+21:38
+Bora terminar
+Nara Guimarães
+21:40
+por conta da questao de funcao geradora
+José Cruz
+21:41
+pq ele já passou por todo o loop e não tem "next"
+José Cruz
+21:46
+beleza
+ana carolina gomes
+21:50
+no print
+Beatriz de M. Porto
+21:52
+Eu já teria desistido xD
+Mauro Veloso
+21:56
+Egídio
+José Cruz
+22:00
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+Vytor Siebra
+22:00
+tbm
+Beatriz de M. Porto
+22:00
+O desespero bateu xD
+Lucas Nobre Barbosa
+22:01
+Não usa comentários do tipo
+
+# Somando a e b
+soma = a + b
+
+kkkkkkk
+Lívia Minucelli
+22:02
+é bem isso mesmo
+kkk
+José Cruz
+22:02
+é isso ai
+Lívia Minucelli
+22:02
+depois que aprende o básico muito bem a curva de aprendizado diminui bastante
+José Cruz
+22:03
+tem muitos ferramenteiros no mercado
+Diogo Moura
+22:04
+so sei que nada sei nem sei como passei
+Beatriz de M. Porto
+22:04
+kkkkkkkkkkk
+Renan Moreira
+22:04
+KKKKKKKKKKKKKKKKKKKKKKKKKK
+coe po
+Mauro Veloso
+22:04
+kkkk'
+José Cruz
+22:05
+Bora montar um time de counterstrike pq o python aqui tá embaçado kkkkkk
+Bora renan
+Beatriz de M. Porto
+22:05
+kkkkkkkkkkkkkkkk
+Alessandra Cruz
+22:05
+Boa noite pessoal! Obrigada, Lauro!
+Diana Osorio
+22:05
+obrigada pessoal! boa noite!!!
+Nara Guimarães
+22:06
+boa noite pessoal
+Bruna Araújo
+22:06
+Boa noite!
+Vytor Siebra
+22:06
+boa noite pessoal
+Beatriz de M. Porto
+22:06
+Boa noite, pessoal! Obrigadaaa, Lauroo
+Vytor Siebra
+22:06
+até a proxima
+Thiago Silva
+22:06
+boa noite galera
+Kauã Cecílio
+22:06
+boa noite
+José Cruz
+22:06
+valeu boa noite! :)
+Marcelo Oliveira
+22:06
+Boa noite pessoal !
+Renan Moreira
+22:06
+vlw pessoal, boa noite
