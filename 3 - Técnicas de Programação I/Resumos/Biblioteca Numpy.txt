@@ -1,0 +1,114 @@
+Biblioteca Numpy
+
+- import Numpy as np
+
+a) array:
+	np.array(lista)
+
+b) arrays com zeros:
+	np.zeros(n)	
+
+c) arrays com uns:
+	np.ones(n)
+
+d) arrays com um range
+	np.arange(inicio_fechado, fim_aberto, passo)
+
+e) arrays linearmente espaçados:
+	np.linspace(inicio_fechado, fim_fechado, quantidade_elementos)
+
+f) Valores float aleatórios:
+	np.random.rand(qtd_valores)
+
+g) Valores inteiros aleatórios
+	np.random.randint(inf, superior, qtd)
+
+h) Escolha aleatórica dentro de um array sem repetição
+	np.random.choice(array, qtd , replace=False)
+
+i) Escolha aleatória segundo uma destribuição normal:
+	np.random.normal(inicio, fim, qtd)
+------------------------------------------------------------
+Métodos de array:
+
+- arrays não aceitam tipos diferentes de dados como nas listas
+
+a) Indexação igual ao de uma lista:
+	array[index]
+
+b) Transformar em uma lista:
+	array.tolist()
+
+c) Somar cada elemento de um array:
+	array1 + array2
+
+	**Os arrays devem ter a mesma quantidade de elementos
+	**Todas as operações são feitas elemento a elemento
+
+d) Maior número de um array:
+	array.max()
+
+e) Posição do maior número do array:
+	array.argmax()
+
+f) Menor número de um array:
+	array.min()
+
+g) Posição do menor número de um array:
+	array.argmin()
+
+h) Somar cada elemento de um array:
+	array.sum()
+
+i) Média de todos os elementos de um array:
+	array.mean()
+
+j) Desvio Padrão dos elemetos de um array:
+	array.std()
+
+k) Quantidade de elementos do array:
+	array.shape
+ou      len(array)
+
+l) Tipo de dado dos elementos:
+	array.dtype
+
+m) Mudar o tipo de dado dos elementos
+	array.astype(tipo_dado)
+
+n) Dimensão do array:
+	array.ndim
+
+o) Inverter um array:
+	np.flip(lista ou array)
+
+p) Procurar um elemento dentro de um array
+	array = np.array([1,2,0,0,1,0])
+	np.where(array != 0)
+
+	**Retorna os índices dos elementos
+
+q) Multiplicar cada elemento de dois vetores e somar tudo:
+	(np.array1 * np.array2).sum()
+	ou
+	np.array1 @ np.array2
+------------------------------------------------------------
+Matrizes:
+
+- utiliza arrays de múltipla dimensão
+
+a) Mudar a forma de um array para se dispor como matriz:
+	array.reshape(linhas, colunas)
+
+b) Matriz Identidade:
+	np.eye(ordem_matriz)
+
+c) Para métodos que contenham ou shape ou size como argumentos:
+	- passar uma tupla e o resultado será uma matriz
+
+
+=> TODOS ARRAYS ACEITAM FILTROS
+
+
+
+
