@@ -1,0 +1,132 @@
+PANDAS:
+
+- !pip install pandas
+- import pandas as pd
+
+DataFrame:
+	- semelhante a uma matriz 
+	- aceita tipos de dados diferentes
+	- as colunas têm nomes
+	- É UMA TABELA!
+
+Series:
+	- matrizes unidimensionais
+	- aceita tipos diferentes de dados
+	- seria apenas uma coluna de uma tabela
+
+a) Ler arquivo csv:
+	data_frame = pd.read_csv(file.csv, sep=',')
+
+b) Acessar os valores de uma coluna:
+	series = data_frame[nome_coluna]
+	lista = data_frame[nome_coluna].tolist()
+
+ou data_frame.filter(items=[colunas])
+
+c) Acessar mais de uma coluna:
+	data_frama2 = data_frame[[coluna1, coluna2]]
+
+d) Todas as colunas de DataFrame:
+	data_frame.colums
+
+e) Acessar uma linha do dataFrame:
+	serie = data_frame.loc[index_linha]
+	lista = data_frame.loc[index_linha].tolist()
+
+f) Acessar um elemento do dataFrame:
+	data_frame.loc[index_linha, nome_coluna]
+	
+	*Para modificar esse elemento, basta atribuir um novo valor a ele
+	data_frame.loc[index_linha, nome_coluna] = novo_valor
+
+g) Criando uma nova coluna com valores
+	data_frame[nome_nova_coluna] = valor_igual_todas_colunas
+
+	data_frame[nome_nova_coluna] = [elemento1, ..., elemento_n]
+
+	*elemento_n deve ser exatamente a mesma quantidade de linhas existentes no dataFrame
+
+h) Número de linhas e colunas do DataFrame:
+	data_frame.shape
+
+	* retorna uma tupla: (numero_linhas, numero_colunas)
+
+i) Criando uma nova linha com valores
+	data_frame.loc[data_frame.shape[1]] = [valor_coluna1, ..., valor_colunaN]
+
+j) Excluir uma coluna:
+	data_frame = data_frame.drop(columns=nome_coluna) 
+ou	data_frame.drop(columns=nome_coluna, inplace=True)
+
+	nome_coluna pode ser uma lista com mais de uma coluna
+
+k) Excluir uma linha:
+	data_frame = data_frame.drop(index=index_linha)
+
+	index_linha pode ser uma lista com mais de uma linha
+
+l) Informações detalhadas sobre o dataFrame:
+	data_frame.info()
+
+m) Calcular média entre colunas:
+	data_frame['Media] = data_frame[[colunas]].mean(axis=1)
+
+n) Filtros:
+	data_frame[filtro]
+
+	*exemplo: filtro = data_frame['media'] > 8 & data_frame['Frequencia'] > 20
+
+	- & : corresponde ao "and"
+	- | : corresponde ao "or"
+	- ~ : - corresponde ao "not"
+
+
+o) Filtros com query:
+
+	data_frame.query("media > 7 and Frequencia > 20")
+
+p) Salvar um arquivo csv a partir de um dataFrame:
+	data_frame.to_csv(nome_arquivo.csv, sep=',', index=False)
+
+	*index=False não salva os índices das linhas no arquivo
+
+q) Transformar um dicionário em um DataFrame:
+	pd.DataFrame(dicionario)
+
+r) verificar nulos em um dataFrame:
+	data_frame.isnull().sum()
+
+s) segregar colunas com dados númericos e não numéricos:
+	import numpy as pd
+
+	df.select_dtypes(exclude=np.number)	#apenas dados categóricos
+
+	df.select_dtypes(include=np.number)	#apenas dados numéricos
+
+t) Pegar apenas os valores únicos:
+	df[coluna].unique()
+
+u) Contar quantidades de tipos únicos:
+	df[coluna].nunique()
+
+v) Agrupar e contar cada aparição:
+	df[coluna].value_counts(normalize=True).reset_index(name='nome_nova_coluna')
+
+ou	df.groupby([colunas]).size().reset_index(name='nome_nova_coluna')
+
+normalize=True: porcentagem
+
+x) Verificar resumo estatístico de uma série numérica
+	df[coluna].describe()
+
+w) Agrupar usando groupby:
+	df.groupby([coluna1, coluna2,...])[coluna3].func()
+
+func (função de agregação)
+	- mean(): média
+	- std(): desvio padrão
+	- min(): menor valor
+	- max(): maior valor
+	- size(): contagem 
+	- agg(['mean', 'max', ...]): mais de uma função de agregação
+
