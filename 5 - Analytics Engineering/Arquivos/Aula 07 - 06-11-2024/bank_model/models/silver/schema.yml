@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: bank_info_silver
+    description: "Camada silver da tabela de resultados do banco"
+    columns:
+      - name: id
+        description: "Identificador unico do registro"
+        tests:
+          - unique
+          - not_null
+      - name: num_of_delayed_payment
+        description: "Número de pagamentos atrasados"
+        tests:
+          - not_null
+

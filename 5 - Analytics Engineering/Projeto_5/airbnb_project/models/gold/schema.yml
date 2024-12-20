@@ -1,0 +1,192 @@
+version: 2
+models:
+  - name: most_reviewed_gold
+    description: >
+      Retorna os anúncios mais comentados, em ordem decrescente.
+    columns:
+      - name: id
+        data_type: bigint
+        description: Id do anúncio
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: review_scores_rating
+        data_type: bigint
+        description: contagem de reviews do anúncio
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+  - name: score_host_gold
+    description: |
+      Calcula a média das pontuações dos donos de imóvel.
+    tests:
+      - dbt_expectations.expect_table_columns_to_match_set:
+          column_list:
+            - host_id
+            - host_name
+            - media_avaliacao
+    columns:
+      - name: host_id
+        data_type: bigint
+        description: ID do anunciante
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: host_name
+        description: Nome do anunciante
+        data_type: text
+      - name: media_avaliacao
+        data_type: double precision
+        description: Média da avaliação do anunciante
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+  - name: count_property_host_gold
+    description: |
+      Calcula a contagem de imóveis por dono.
+    tests:
+      - dbt_expectations.expect_table_columns_to_match_set:
+          column_list:
+            - host_id
+            - host_name
+            - contagem_imoveis
+    columns:
+      - name: host_id
+        data_type: bigint
+        description: ID do anunciante
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: host_name
+        description: Nome do Anunciante
+        data_type: text
+      - name: contagem_imoveis
+        data_type: bigint
+        description: Contagem de imóveis do anunciante
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 200
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+  - name: avg_occupancy_by_neighborhood_gold
+    description: >
+      Retorna a taxa média de ocupação anual das propriedades por bairro, em ordem decrescente.
+      Isso ajuda a identificar áreas com maior demanda de hospedagem.
+    columns:
+      - name: neighbourhood
+        data_type: text
+        description: Nome do bairro onde as propriedades estão localizadas
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: avg_occupancy
+        data_type: float
+        description: >
+          Taxa média de ocupação anual das propriedades no bairro, calculada com base 
+          na disponibilidade das propriedades ao longo do ano.
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 365
+
+  - name: host_location_summary_gold
+    description: >
+      Resumo das localizações dos hosts, mostrando o total de propriedades por localização.
+      Esse modelo ajuda a identificar as áreas com maior concentração de hosts no Airbnb.
+    columns:
+      - name: host_location
+        data_type: text
+        description: >
+          Localização registrada pelo host para suas propriedades, indicando a cidade ou região onde ele se encontra.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: property_count
+        data_type: bigint
+        description: >
+          Contagem total de propriedades associadas a cada localização do host.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+  - name: avg_price_by_region_and_type
+    description: >
+      Retorna a média de preço por região e tipo de acomodação.
+    columns:
+      - name: region
+        data_type: text
+        description: Nome da região (bairro) onde o imóvel está localizado.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: accommodation_type
+        data_type: text
+        description: Tipo de acomodação como casa, apartamento, quarto, estúdio.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: avg_price
+        data_type: numeric
+        description: Média de preço das acomodações para cada região e tipo. Valores em reais (BRL).
+        tests:
+          - check_value_is_not_negative
+
+  - name: avg_review_score_by_region
+    description: >
+      Retorna a média de avaliação por região.
+    columns:
+      - name: region
+        data_type: text
+        description: Nome da região (bairro) onde o imóvel está localizado.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: avg_review_score
+        data_type: numeric
+        description: Média de avaliação das acomodações para cada região. A nota varia de 0 a 5.
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+
+  - name: avg_occupancy_rate_by_month_and_region
+    description: >
+      Retorna a taxa média de ocupação por mês e por região.
+    columns:
+      - name: region
+        data_type: text
+        description: Nome da região (bairro) onde o imóvel está localizado.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: month
+        data_type: text
+        description: Mês para o qual a taxa de ocupação foi calculada.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: occupancy_rate
+        data_type: numeric
+        description: Taxa média de ocupação das acomodações para cada mês e região. A taxa varia entre 0 e 1.
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1
+
+  - name: common_amenities_in_high_rated_listings
+    description: >
+      Retorna as comodidades mais comuns em listagens com avaliações altas.
+    columns:
+      - name: amenity
+        data_type: text
+        description: Nome da comodidade oferecida na listagem (ex:Wi-Fi, cozinha).
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: frequency
+        data_type: integer
+        description: Frequência da comodidade entre as listagens com avaliações altas.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+

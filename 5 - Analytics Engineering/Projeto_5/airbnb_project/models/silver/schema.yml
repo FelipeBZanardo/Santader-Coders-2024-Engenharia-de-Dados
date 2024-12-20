@@ -1,0 +1,342 @@
+version: 2
+
+models:
+  - name: airbnb_listings_silver
+    description: Silver tier of the Listings table on properties listed on Airbnb
+    columns:
+      - name: id
+        description: Airbnb's unique identifier for the listing
+        data_type: bigint
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: bigint
+      - name: listing_url
+        description: listing url
+        data_type: text
+        tests:
+          - unique
+          - not_null
+      - name: scrape_id
+        description: Inside Airbnb "Scrape" this was part of
+        data_type: bigint
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: bigint
+      - name: last_scraped
+        description: UTC. The date and time this listing was "scraped".
+        data_type: date
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: Date
+      - name: source
+        description: One of "neighbourhood search" or "previous scrape". "neighbourhood
+          search" means that the listing was found by searching the city, while "previous
+          scrape" means that the listing was seen in another scrape performed in the last
+          65 days, and the listing was confirmed to be still available on the Airbnb site.
+        data_type: text
+      - name: name
+        description: Name of the listing
+        data_type: text
+        tests:
+          - not_null
+      - name: description
+        description: Detailed description of the listing
+        data_type: text
+        tests:
+          - not_null
+      - name: neighborhood_overview
+        description: Host's description of the neighbourhood
+        data_type: text
+        tests:
+          - not_null
+      - name: host_id
+        description: Airbnb's unique identifier for the host/user
+        data_type: integer
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: host_url
+        description: The Airbnb page for the host
+        data_type: text
+      - name: host_name
+        description: Name of the host. Usually just the first name(s).
+        data_type: text
+        tests:
+          - not_null
+      - name: host_since
+        description: The date the host/user was created. For hosts that are Airbnb guests
+        data_type: date
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: Date
+      - name: host_location
+        description: The host's self reported location
+        data_type: text
+        tests:
+          - not_null
+      - name: host_about
+        description: Description about the host
+        data_type: text
+        tests:
+          - not_null
+      - name: neighbourhood
+        description: neighbourhood
+        data_type: text
+        tests:
+          - not_null
+      - name: latitude
+        description: Uses the World Geodetic System (WGS84) projection for latitude and longitude.
+        data_type: numeric
+        tests:
+          - not_null
+      - name: longitude
+        description: Uses the World Geodetic System (WGS84) projection for latitude and longitude.
+        data_type: numeric
+        tests:
+          - not_null
+      - name: property_type
+        description: Self selected property type. Hotels and Bed and Breakfasts are described as such by their hosts in this field
+        data_type: text
+        tests:
+          - not_null
+      - name: room_type
+        description: '[Entire home/apt|Private room|Shared room|Hotel]
+        All homes are grouped into the following three room types:
+        Entire place
+        Private room
+        Shared room
+        Entire place
+        Entire places are best if you''re seeking a home away from home. With an entire
+        place, you''ll have the whole space to yourself. This usually includes a bedroom,
+        a bathroom, a kitchen, and a separate, dedicated entrance. Hosts should note in
+        the description if they''ll be on the property or not (ex: "Host occupies first
+        floor of the home"), and provide further details on the listing.
+
+        Private rooms
+        Private rooms are great for when you prefer a little privacy, and still value
+        a local connection. When you book a private room, you''ll have your own private
+        room for sleeping and may share some spaces with others. You might need to walk
+        through indoor spaces that another host or guest may occupy to get to your room.
+
+        Shared rooms
+        Shared rooms are for when you don''t mind sharing a space with others. When you
+        book a shared room, you''ll be sleeping in a space that is shared with others
+        and share the entire space with other people. Shared rooms are popular among flexible
+        travelers looking for new friends and budget-friendly stays.'
+        data_type: text
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_in_set:
+              value_set:
+                - 'Entire home/apt'
+                - 'Shared room'
+                - 'Private room'
+                - 'Hotel room'
+      - name: accommodates
+        description: The maximum capacity of the listing
+        data_type: integer
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: bedrooms
+        description: The number of bedrooms
+        data_type: integer
+        tests:
+          - not_null
+          - check_value_is_not_negative
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: beds
+        description: The number of bed(s)
+        data_type: integer
+        tests:
+          - not_null
+          - check_value_is_not_negative
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: amenities
+        description: amenities
+        data_type: json
+        tests:
+          - not_null
+      - name: price
+        description: 'daily price in local currency.
+        NOTE: the $ sign is a technical artifact of the export, please ignore it'
+        data_type: double precision
+        tests:
+          - check_value_is_not_negative
+          - not_null
+      - name: minimum_nights
+        description: minimum number of night stay for the listing (calendar rules may be different)
+        data_type: integer
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: maximum_nights
+        description: maximum number of night stay for the listing (calendar rules may be different)
+        data_type: integer
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: has_availability
+        description: '[t=true; f=false]'
+        data_type: boolean
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: boolean
+      - name: availability_365
+        description: avaliability_x. The availability of the listing x days in the future as determined by the calendar. Note a listing may not be available because it has been booked by a guest or blocked by the host.
+        data_type: integer
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: number_of_reviews
+        description: The number of reviews the listing has
+        data_type: integer
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: first_review
+        description: The date of the first/oldest review
+        data_type: date
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: Date
+      - name: last_review
+        description: The date of the last/newest review
+        data_type: date
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: Date
+      - name: review_scores_rating
+        description: review scores rating
+        data_type: numeric
+        tests:
+          - check_value_is_not_negative
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: numeric
+      - name: instant_bookable
+        description: '[t=true; f=false]. Whether the guest can automatically book the listing
+        without the host requiring to accept their booking request. An indicator of a
+        commercial listing.'
+        data_type: boolean
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: boolean
+      - name: reviews_per_month
+        description: 'The average number of reviews per month the listing has over the lifetime
+        of the listing.
+        Psuedocoe/~SQL:
+        IF scrape_date - first_review <= 30 THEN number_of_reviews
+        ELSE number_of_reviews / ((scrape_date - first_review + 1) / (365/12)'
+        data_type: numeric
+        tests:
+          - check_value_is_not_negative
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: numeric
+
+  - name: airbnb_reviews_silver
+    description: Silver tier of the Reviews table based on reviews made by guests who have stayed at the listed properties
+    columns:
+      - name: listing_id
+        description: listing identificator
+        data_type: bigint
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: bigint
+      - name: id
+        description: identificator
+        data_type: bigint
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: bigint
+      - name: date
+        description: date of review
+        data_type: date
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: Date
+      - name: reviewer_id
+        description: reviewer identificator
+        data_type: bigint
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: bigint
+      - name: reviewer_name
+        description: reviewer's name
+        tests:
+          - not_null
+      - name: comments
+        description: comments
+        tests:
+          - not_null
+
+
+  - name: airbnb_calendar_silver
+    description: Silver tier of the Calendar table on property availability over time.
+    columns:
+      - name: listing_id
+        description: listing identificator
+        data_type: bigint
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: bigint
+      - name: date
+        description: The date in the listing's calendar
+        data_type: date
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: Date
+      - name: available
+        description: Whether the date is available for a booking
+        data_type: boolean
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: boolean
+      - name: price
+        description: The price listed for the day
+        data_type: double precision
+        tests:
+          - check_value_is_not_negative
+          - not_null
+      - name: minimum_nights
+        description: Minimum nights for a booking made on this day
+        data_type: integer
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+      - name: maximum_nights
+        description: Maximum nights for a booking made on this day
+        data_type: integer
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+  

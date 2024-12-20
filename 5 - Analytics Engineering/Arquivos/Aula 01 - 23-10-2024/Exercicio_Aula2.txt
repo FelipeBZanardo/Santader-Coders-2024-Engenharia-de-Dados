@@ -1,0 +1,37 @@
+Entrega: 09/02 - Via Email
+
+Grupo 1 (Levy, Guilherme Oliveira, Caio Brainer, Fernanda Regina, Taciana, Carlos)
+
+Grupo 2 (Ian, João Victor, Gabriel, Junior Ramos, Bianca, Lucindo)
+
+Grupo 3 (Rafael, Alex, Natalia, Lucas, Thaisa, Luana)
+
+Grupo 4 (Thatiana Napolitano, Débora, Lindy, Thascilla, Jéssica, Caio Almeida, Thiago Breves)
+
+**UM ENVIO POR GRUPO**
+
+
+MODELAR ER - FÁBRICA DE ROUPAS
+
+
+Fábrica de Roupas 
+Uma fábrica de roupas exclusivas (cada modelo, único, é projetado por estilistas famosos) deseja um sistema para controlar sua produção.  A fábrica conta atualmente com 1230 funcionários sendo que a maior parte dos mesmos são costureiras trabalhando na atividade fim. A fábrica possui aproximadamente 600 máquinas de costura de diversos tipos (overlock, zig zag, costura reta, etc) de diversos fabricantes.
+
+Para ingressar como costureira, a funcionária é avaliada para determinar em que tipo de máquina ela possui habilitação. Cada máquina pode realizar um ou mais tipos de costura.
+
+Cada peça de roupa é produzida integralmente por uma costureira em uma máquina, sendo que neste período nem a costureira, nem a máquina podem ser alocados para outra coisa.
+
+A remuneração das costureiras é mensal, baseado em uma alíquota fixa (15%) sobre o preço de venda de cada peça. Nenhuma costureira pode receber menos que um determinado valor mínimo que é negociado no momento da contratação de cada uma. As costureiras são divididas em supervisões, cada uma possuindo uma supervisora que é a responsável pela qualidade do que é produzido, e pela monitoração das máquinas que estão em conserto.   A máquina só vai para conserto após o término da produção da peça.  A supervisora da costureira que estava produzindo nesta máquina se torna a responsável pela monitoração de seu conserto.
+
+
+A fábrica necessita das seguintes informações:
+
+a) Relatório de peças produzidas por uma costureira num determinado período, no seguinte formato: modelo da peça, descrição do modelo, data e hora de início e término da fabricação, código da máquina de costura, localização da máquina e o fabricante.
+
+b) Relatório das costureiras sem produção no período (matrícula da costureira, nome, Valor Mínimo Negociado).
+
+c) Relação das máquinas disponíveis, informando para cada uma o seu fabricante e o(s) tipo(s) de costura que possui.
+
+d) Quais costureiras estão disponíveis e habilitadas a trabalhar em um tipo de máquina no momento.
+
+  e) Relação das máquinas que estiveram mais de 10 vezes em conserto, contendo: código da máquina e para cada conserto, matrícula e nome da supervisora responsável, data início e término do conserto.

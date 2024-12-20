@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: airbnb
+    description: "Fonte de dados da camada Bronze"
+    database: ada
+    schema: public
+    tables:
+      - name: listings_bronze
+        description: "Este conjunto de dados contém informações detalhadas sobre as propriedades listadas no Airbnb. Cada registro representa uma listagem individual e inclui informações como o tipo de propriedade, preço, localização, número de quartos, comodidades oferecidas e muito mais"
+      - name: reviews_bronze
+        description: "O conjunto de dados de avaliações contém informações sobre as avaliações feitas por hóspedes que ficaram nas propriedades listadas. Ele inclui dados como a data da avaliação, o identificador da propriedade, os comentários escritos pelos hóspedes, e outras informações."
+      - name: calendar_bronze
+        description: "Este conjunto de dados contém informações sobre a disponibilidade das propriedades ao longo do tempo. Ele lista as datas em que as propriedades estão disponíveis para reserva, bem como os preços para cada data"

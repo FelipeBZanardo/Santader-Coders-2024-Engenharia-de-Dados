@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: ibm_prices
+    description: "Fonte de dados da camada Bronze"
+    database: ada
+    schema: public
+    tables:
+      - name: ibm_prices_bronze_lauro
+        description: "Dados brutos da IBM"

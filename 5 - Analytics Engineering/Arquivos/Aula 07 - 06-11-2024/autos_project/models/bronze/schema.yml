@@ -1,0 +1,49 @@
+version: 2
+
+
+models:
+  - name: autos_bronze
+    description: "Tabela limpa de informações de automóveis."
+    columns:
+
+
+      - name: name
+        description: "Nome do automóvel."
+        tests:
+          - not_null
+
+
+      - name: price
+        description: "Preço do automóvel."
+        tests:
+          - not_null
+
+
+      - name: abtest
+        description: "Grupo de teste A/B."
+        tests:
+          - not_null
+
+
+      - name: gearbox
+        description: "Tipo de caixa de câmbio."
+        tests:
+          - not_null
+
+
+      - name: model
+        description: "Modelo do veículo."
+        tests:
+          - not_null
+
+
+      - name: kilometer
+        description: "Quilometragem do veículo."
+        tests:
+          - not_null
+
+
+      - name: brand
+        description: "Marca do veículo."
+        tests:
+          - not_null
