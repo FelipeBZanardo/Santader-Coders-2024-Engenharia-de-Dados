@@ -1,0 +1,29 @@
+bebe{
+  id int pk
+  nome string
+  data_nascimento date
+  peso float
+  altura int
+  mae_id
+  medico_id
+}
+
+mae{
+  id int pk
+  nome string
+  endereco string
+  telefone string
+  data_nascimento date
+}
+
+medico{
+  id int pk
+  nome string
+  crm string
+  especialidade string
+}
+
+bebe.mae_id > mae.id
+mae.id - bebe.mae_id
+
+bebe.medico_id > medico.id

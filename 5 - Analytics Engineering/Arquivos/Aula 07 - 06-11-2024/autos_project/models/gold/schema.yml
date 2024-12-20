@@ -1,0 +1,9 @@
+version: 2
+
+
+models:
+  - name: autos_gold
+    columns:
+      - name: avg_price
+        tests:
+          - not_null

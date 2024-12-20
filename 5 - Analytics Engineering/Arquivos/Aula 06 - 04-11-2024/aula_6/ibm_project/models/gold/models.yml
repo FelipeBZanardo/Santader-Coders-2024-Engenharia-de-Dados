@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: ibm_prices_gold
+    description: "Camada gold da tabela de resultados da IBM"
+    columns:
+      - name: date
+        description: "Dia do resultado"
+        tests:
+          - unique
+          - not_null
+      - name: mean_diff_high_low
+        description: "Media da diferença entre o valor mais alto e baixo do periodo de tempo"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: -100
+              max_value: 100
+      - name: max_high
+        description: "Representa o preço mais alto que a ação atingiu durante o mesmo período de tempo"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: real
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: -500
+              max_value: 500
+      - name: min_low
+        description: "Representa o preço mais low que a ação atingiu durante o mesmo período de tempo"
+        tests:
+          - not_null

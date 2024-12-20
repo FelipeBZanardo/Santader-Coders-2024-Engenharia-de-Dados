@@ -1,0 +1,11 @@
+version: 2
+
+
+sources:
+  - name: autos
+    description: 'Fonte de dados Carros usados'
+    database: ada
+    schema: public
+    tables:
+      - name: autos_cleaned
+        description: 'Dados brutos de Carros usados'

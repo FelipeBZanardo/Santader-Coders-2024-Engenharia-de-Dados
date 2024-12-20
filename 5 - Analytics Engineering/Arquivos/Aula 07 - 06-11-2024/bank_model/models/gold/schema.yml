@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: bank_info_gold_res_avg
+    description: "Camada gold da tabela de resultados do banco por cliente"
+    columns:
+      - name: customer_id
+        description: "Identificador unico do registro"
+        tests:
+          - unique
+          - not_null
+      - name: mean_num_of_delayed_payment
+        description: "Número de pagamentos atrasados"
+        tests:
+          - not_null
+
+
+  - name: bank_info_gold_last_id
+    description: "Camada gold da tabela de resultados do banco com valores de anos de contribuição do cliente"
+    columns:
+      - name: customer_id
+        description: "Identificador unico do registro"
+        tests:
+          - unique
+          - not_null
