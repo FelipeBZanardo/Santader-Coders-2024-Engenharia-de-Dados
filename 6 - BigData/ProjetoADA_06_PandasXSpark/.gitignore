@@ -1,0 +1,11 @@
+/Dataset/cards_data.csv
+/Dataset/mcc_codes.json
+/Dataset/train_fraud_labels.json
+/Dataset/transactions_data.csv
+/Dataset/users_data.csv
+/Dataset/Pandas/Tabela_Cartoes_Credito_Silver
+/Dataset/Pandas/Tabela_Transacoes_Silver
+/Dataset/Pandas/Tabela_Usuarios_Silver
+/Dataset/Spark/Tabela_Cartoes_Credito_Silver
+/Dataset/Spark/Tabela_Transacoes_Silver
+/Dataset/Spark/Tabela_Usuarios_Silver
